@@ -1,0 +1,12 @@
+:root {
+  /* Yellow main search box and header  */
+  --PRIMARY: #ffe600;
+  /* Fonts */
+  --SECONDARY: #333333;
+  /* Gray colors */
+  --GRAY01: #999999;
+  --GRAY02: #eeeeee;
+  --GRAY03: #666666;
+  /* Buttons */
+  --BLUE01: #666666;
+}
