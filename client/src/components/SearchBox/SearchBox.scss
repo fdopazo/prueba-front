@@ -1,5 +1,87 @@
 $PRIMARY: #ffe600;
+$GRAY01: #999999;
+$GRAY02: #eeeeee;
+$GRAY03: #666666;
 
 .main-header {
-  color: $PRIMARY;
+  background-color: $PRIMARY;
+  height: 62px;
 }
+
+.form {
+  display: inline;
+  height: 60px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.input-header {
+  width: 55%;
+  font-size: 18px;
+  vertical-align: middle;
+  height: 35px;
+  outline: none;
+  border: 0;
+  text-indent: 10px;
+  border-radius: 4px;
+}
+
+.logo {
+  vertical-align: middle;
+}
+
+.logo-container {
+  display: inline;
+}
+
+.container {
+  padding-top: 13px;
+}
+
+.search-button {
+  height: 35px;
+  right: 2px;
+  position: absolute;
+  bottom: 2px;
+  outline: none;
+  border: 0;
+  background-color: $GRAY02;
+  padding: 5px 10px 0 10px;
+  top: -5px;
+}
+
+.search-icon {
+  height: 16px;
+  width: 16px;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+::placeholder {
+  color: $GRAY01;
+}
+
+// input {
+//   margin: 0px;
+//   padding: 0px;
+//   width: 100%;
+//   outline: none;
+// }
+
+// button {
+//   position: absolute;
+//   top: 0;
+//   border-radius: 5px;
+//   // right: 0px;
+//   // z-index: 2;
+//   border: none;
+//   top: 2px;
+//   // height: 30px;
+//   // cursor: pointer;
+//   // color: white;
+//   // background-color: #1e90ff;
+//   // transform: translateX(2px);
+// }

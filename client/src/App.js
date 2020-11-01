@@ -17,6 +17,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
+        <SearchBox />
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -28,10 +29,10 @@ export default class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn React
+            orejon libre
             </a>
         </header>
-        <SearchBox />
+
       </div>
     )
   }
