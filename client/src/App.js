@@ -3,6 +3,7 @@ import './App.css';
 import React, { Component } from 'react';
 import middleware from './services/middleware';
 import SearchBox from './components/SearchBox/SearchBox';
+import SearchResult from './components/SearchResult/SearchResult';
 
 export default class App extends Component {
 
@@ -16,22 +17,11 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div class="App">
         <SearchBox />
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
 
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            orejon libre
-            </a>
-        </header>
+
+        <SearchResult />
 
       </div>
     )
