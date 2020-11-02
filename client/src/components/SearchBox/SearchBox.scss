@@ -6,6 +6,7 @@ $GRAY03: #666666;
 .main-header {
   background-color: $PRIMARY;
   height: 62px;
+  text-align: center;
 }
 
 .form {
@@ -63,25 +64,3 @@ input:focus {
 ::placeholder {
   color: $GRAY01;
 }
-
-// input {
-//   margin: 0px;
-//   padding: 0px;
-//   width: 100%;
-//   outline: none;
-// }
-
-// button {
-//   position: absolute;
-//   top: 0;
-//   border-radius: 5px;
-//   // right: 0px;
-//   // z-index: 2;
-//   border: none;
-//   top: 2px;
-//   // height: 30px;
-//   // cursor: pointer;
-//   // color: white;
-//   // background-color: #1e90ff;
-//   // transform: translateX(2px);
-// }
