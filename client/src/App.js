@@ -6,6 +6,7 @@ import SearchBox from './components/SearchBox/SearchBox';
 import SearchResult from './components/SearchResult/SearchResult';
 import ItemDetail from './components/ItemDetail/ItemDetail';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Layout from './components/commons/Layout';
 
 
 export default class App extends Component {
@@ -19,27 +20,18 @@ export default class App extends Component {
 
   render() {
     return (
-
-      <div className="App">
-        <SearchBox />
-        <p className="container-detail-item">Celphone > informatic > ihpone 12</p>
-        <Router>
-
-          <Switch>
-            <Route path="/about">
-              <ItemDetail />
-            </Route>
-            <Route path="/users">
-              <SearchResult />
-            </Route>
-            <Route path="/">
-              <SearchResult />
-            </Route>
-          </Switch>
-
-        </Router>
-
-      </div>
+      <Router>
+        <Switch>
+          <Route path="/about">
+            <ItemDetail />
+          </Route>
+          <Route path="/users">
+            <SearchResult />
+          </Route>
+          <Route component={Layout} path="/">
+          </Route>
+        </Switch>
+      </Router>
     )
   }
 
