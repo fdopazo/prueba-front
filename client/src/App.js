@@ -1,13 +1,14 @@
-import logo from './logo.svg';
+
 import './App.css';
 import React, { Component } from 'react';
 import middleware from './services/middleware';
 import SearchBox from './components/SearchBox/SearchBox';
 import SearchResult from './components/SearchResult/SearchResult';
 import ItemDetail from './components/ItemDetail/ItemDetail';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 
 export default class App extends Component {
-
 
   async componentDidMount() {
     console.log('aqui')
@@ -18,15 +19,25 @@ export default class App extends Component {
 
   render() {
     return (
-      <div class="App">
+
+      <div className="App">
         <SearchBox />
-        <div className="container-detail-item">
-          <p>
-            Electronica, audio y video > Ipod > Reproductores > 32 gb
-          </p>
-        </div>
-        {/* <ItemDetail /> */}
-        <SearchResult />
+        <p className="container-detail-item">Celphone > informatic > ihpone 12</p>
+        <Router>
+
+          <Switch>
+            <Route path="/about">
+              <ItemDetail />
+            </Route>
+            <Route path="/users">
+              <SearchResult />
+            </Route>
+            <Route path="/">
+              <SearchResult />
+            </Route>
+          </Switch>
+
+        </Router>
 
       </div>
     )

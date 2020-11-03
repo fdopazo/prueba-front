@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Button } from '../commons/Button';
 import './ItemDetail.scss'
 export default class ItemDetail extends Component {
     render() {
