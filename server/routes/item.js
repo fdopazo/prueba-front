@@ -1,11 +1,25 @@
 const express = require('express');
 const app = express();
+const cors = require("cors");
 const { getMLApi } = require('../consumer/consumer');
+app.use(cors());
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
 
-    getMLApi('motorola', 0, 4).then((result) => res.json({ resp: result.data.results }))
-        .catch(err => console.log(err))
+    const resp = await getMLApi('motorola', 0, 50);
+    const resp2 = resp.data.results.map((item) => ({
+        categories: []
+    }))
+    return res.json({ res: resp.data.results })
+
+    // getMLApi('masadasfasfasf', 0, 4).then((result) => res.json({ resp: result.data.results }))
+    //     .catch(res.json({ err }))
+
+})
+
+
+app.get('/s', (req, res) => {
+
 
 })
 
