@@ -3,7 +3,7 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-    loader: false
+    loader_value: false
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -12,7 +12,7 @@ export default (state = INITIAL_STATE, action) => {
         case LOADER_ON:
             return {
                 ...state,
-                loader: action.payload
+                loader_value: action.payload
             }
 
         default:

@@ -12,7 +12,8 @@ import './Layout.scss';
 class Layout extends Component {
     state = {
         categories: this.props.item.items_data.categories || [],
-        loader: false
+        loader: false,
+        noResults: ""
     }
 
     async componentWillReceiveProps(nextProps) {
@@ -22,11 +23,29 @@ class Layout extends Component {
         }
     }
 
+    loader() {
+        const { loader_value } = this.props.loader_value;
+        if (loader_value)
+            return (
+                <div className="loader" ></div >
+            )
+    }
+
+    noResults(result, search) {
+        if (result) {
+            this.setState({ noResults: `No existe resultados para: ${search}` })
+        } else {
+            this.setState({ noResults: "" })
+        }
+    }
+
     render() {
-        const { categories } = this.state;
+        const { categories, noResults } = this.state;
         return (
             <div className="App">
-                <SearchBox />
+                <SearchBox noResult={(result, search) => { this.noResults(result, search); }} />
+                {this.loader()}
+                <p className="container-detail-item">{noResults}</p>
                 <p className="container-detail-item">{categories.join(' > ')}</p>
                 {this.props.children}
             </div>

@@ -6,7 +6,7 @@ import ReduxThunk from 'redux-thunk';
 import { applyMiddleware, createStore } from 'redux';
 import SearchResult from './components/SearchResult/SearchResult';
 import ItemDetail from './components/ItemDetail/ItemDetail';
-import { Router, Route, Switch } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 import Layout from './components/commons/Layout';
 import { store } from './redux/store';
 import history from './history';
@@ -22,7 +22,7 @@ export default class App extends Component {
         <Router history={history}>
           <Route exact path="/" component={Layout} />
           <Route exact path="/items/:id" component={ItemDetail} />
-          <Route exact path="/items" component={SearchResult} />
+          <Route exact prev={true} path="/items" component={SearchResult} />
         </Router >
       </Provider>
     )

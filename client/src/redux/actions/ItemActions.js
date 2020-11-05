@@ -15,6 +15,7 @@ export const getItems = (data) => async (dispatch) => {
             params: { data },
             headers: { 'Content-Type': 'multipart/form-data' }
         })
+
         if (resp.status === 200) {
             dispatch({
                 type: GET_ITEMS,
@@ -23,6 +24,7 @@ export const getItems = (data) => async (dispatch) => {
         }
         return resp
     } catch (err) {
+
         return err
     }
 
@@ -48,6 +50,7 @@ export const getItem = (id) => async (dispatch) => {
 
         return resp
     } catch (err) {
+
         return err
     }
 

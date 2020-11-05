@@ -1,6 +1,4 @@
-$GRAY01: #999999;
-$BLUE01: #3483fa;
-$BLACK: #333333;
+@import "../../styles/colors.scss";
 
 .main {
   background-color: #ffffff;
@@ -74,6 +72,11 @@ $BLACK: #333333;
 h1,
 h2 {
   color: $BLACK;
+}
+
+.container-detail-item {
+  width: 70%;
+  margin: 16px auto 16px auto;
 }
 
 @media screen and (max-width: 1460px) {

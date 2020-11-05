@@ -4,5 +4,5 @@ import LoaderReducer from './LoaderReducer';
 
 export default combineReducers({
     item: ItemReducer,
-    loader: LoaderReducer
+    loader_value: LoaderReducer,
 });

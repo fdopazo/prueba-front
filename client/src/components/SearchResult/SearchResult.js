@@ -38,7 +38,8 @@ class SearchResult extends Component {
         const item_resp = await this.props.getItem(id);
         history.push({
             pathname: `/items/${id}`,
-            params: item_resp.data.res
+            params: item_resp.data.res,
+            from: { id: 1, previousRoute: "Search result" }
         });
     }
 
@@ -54,18 +55,18 @@ class SearchResult extends Component {
                         return (
                             <div className="main-container">
                                 <div className="img-text-container">
-                                    <img onClick={() => this.loadDetail(item.id)} className="img-item" src={item.picture} />
+                                    <img alt="imagen de producto" onClick={() => this.loadDetail(item.id)} className="img-item" src={item.picture} />
                                     <div>
                                         <div className="price-and-img-container">
                                             <p className="price">${this.thousandSeparator(item.price.amount)}</p>
-                                            {item.free_shiping ? <img className="shiping-img" src={ic_shipping} /> : null}
+                                            {item.free_shiping ? <img alt="Imagen envio" className="shiping-img" src={ic_shipping} /> : null}
                                         </div>
                                         <p className="description">{item.title}</p>
 
                                     </div>
                                 </div>
                                 <div className="location">
-                                    <p class="location-text">{item.seller_address}</p>
+                                    <p className="location-text">{item.seller_address}</p>
                                 </div>
                             </div>
                         )
