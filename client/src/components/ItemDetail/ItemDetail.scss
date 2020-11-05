@@ -1,6 +1,4 @@
-$GRAY01: #999999;
-$BLUE01: #3483fa;
-$BLACK: #333333;
+@import "../../styles/colors.scss";
 
 .main {
   background-color: #ffffff;
@@ -10,6 +8,7 @@ $BLACK: #333333;
 
 .img-detail-item {
   width: 680px;
+  height: auto;
   margin: 32px;
   border-radius: 4px;
 }
@@ -73,4 +72,62 @@ $BLACK: #333333;
 h1,
 h2 {
   color: $BLACK;
+}
+
+.container-detail-item {
+  width: 70%;
+  margin: 16px auto 16px auto;
+}
+
+@media screen and (max-width: 1460px) {
+  .img-detail-item {
+    width: 200px;
+    height: auto;
+    margin: 32px;
+    border-radius: 4px;
+  }
+  .container-img-detail {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .detail-container {
+    width: 70%;
+    margin: 32px 0 0 32px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .name-item {
+    width: 200px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .price-detail-container {
+    margin-top: 16px;
+    margin-left: -9px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .container-img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .buy-button {
+    width: 70%;
+    height: 45px;
+    border-radius: 6px;
+    background-color: $BLUE01;
+    color: #ffffff;
+    border-color: transparent;
+    font-size: 17px;
+    margin-top: 16px;
+  }
+  .button-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

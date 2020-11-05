@@ -1,34 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+
+
 import React, { Component } from 'react';
-import middleware from './services/middleware';
-import SearchBox from './components/SearchBox/SearchBox';
+import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
+import { applyMiddleware, createStore } from 'redux';
 import SearchResult from './components/SearchResult/SearchResult';
 import ItemDetail from './components/ItemDetail/ItemDetail';
+import { Router, Route } from 'react-router-dom';
+import Layout from './components/commons/Layout';
+import { store } from './redux/store';
+import history from './history';
+
 
 export default class App extends Component {
+  store = createStore(applyMiddleware(ReduxThunk));
 
-
-  async componentDidMount() {
-    console.log('aqui')
-    const resp = await middleware.http.get('http://localhost:3002/');
-    console.log(resp)
-
-  }
 
   render() {
     return (
-      <div class="App">
-        <SearchBox />
-        <div className="container-detail-item">
-          <p>
-            Electronica, audio y video > Ipod > Reproductores > 32 gb
-          </p>
-        </div>
-        {/* <ItemDetail /> */}
-        <SearchResult />
-
-      </div>
+      <Provider store={store}>
+        <Router history={history}>
+          <Route exact path="/" component={Layout} />
+          <Route exact path="/items/:id" component={ItemDetail} />
+          <Route exact prev={true} path="/items" component={SearchResult} />
+        </Router >
+      </Provider>
     )
   }
 

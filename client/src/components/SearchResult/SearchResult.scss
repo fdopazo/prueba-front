@@ -1,4 +1,4 @@
-$GRAY01: #999999;
+@import "../../styles/colors.scss";
 
 .main {
   background-color: white;
@@ -55,4 +55,26 @@ $GRAY01: #999999;
   display: inline-block;
   vertical-align: -webkit-baseline-middle;
   margin: 3px 0 0 7px;
+}
+
+@media screen and (max-width: 960px) {
+  .description {
+    font-size: 18px;
+    width: 200px;
+    margin-top: 16px;
+  }
+}
+
+@media screen and (max-width: 672px) {
+  .img-text-container {
+    display: inline;
+  }
+
+  .description {
+    font-size: 18px;
+    width: 200px;
+    margin-top: 16px;
+    text-align: center;
+    margin-left: auto;
+  }
 }
