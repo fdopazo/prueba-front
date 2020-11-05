@@ -2,18 +2,41 @@ import React, { Component } from 'react';
 import Layout from '../commons/Layout';
 import './ItemDetail.scss'
 export default class ItemDetail extends Component {
+    state = {
+        full_item: {},
+        item: {}
+    }
+
+    componentDidMount() {
+        console.log(this.props)
+        this.setState({ full_item: this.props.location.params, item: this.props.location.params.item })
+    }
+
+    // function to get decimal parts in int number
+    loadAmount() {
+        const { item } = this.state;
+        if (item.price != undefined) {
+            var num_parts = item.price.amount.toString().split(".");
+            num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            return num_parts.join(".");
+
+        }
+    }
+
     render() {
+        const { full_item, item } = this.state;
+        console.log(item)
         return (
             <Layout>
                 <div className="main">
                     <div className="container-img-detail">
-                        <div>
-                            <img className="img-detail-item" src="https://http2.mlstatic.com/D_NQ_NP_2X_653649-MLA32315712170_092019-F.webp" />
+                        <div class="container-img">
+                            <img className="img-detail-item" src={full_item.picture} />
                         </div>
                         <div className="price-detail-container">
-                            <p className="sell-quantity">Nuevo - 234 vendidos</p>
-                            <h2 className="name-item">Deco Reverser Sombrero Oxford</h2>
-                            <p className="price-item">$1.980</p>
+                            <p className="sell-quantity">{full_item.condition} - {full_item.sold_quantity} vendidos</p>
+                            <h2 className="name-item">{item.title}</h2>
+                            <p className="price-item">${this.loadAmount()}</p>
                             <div class="button-container">
                                 <button className="buy-button">Comprar</button>
                             </div>
@@ -21,7 +44,7 @@ export default class ItemDetail extends Component {
                     </div>
                     <div className="detail-container">
                         <h1 className="description-title">Descripcion del producto</h1>
-                        <p className="text-detail">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.</p>
+                        <p className="text-detail">{full_item.description}</p>
                     </div>
 
                 </div>

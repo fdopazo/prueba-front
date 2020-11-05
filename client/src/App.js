@@ -1,37 +1,30 @@
 
-import './App.css';
+
 import React, { Component } from 'react';
-import middleware from './services/middleware';
-import SearchBox from './components/SearchBox/SearchBox';
+import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
+import { applyMiddleware, createStore } from 'redux';
 import SearchResult from './components/SearchResult/SearchResult';
 import ItemDetail from './components/ItemDetail/ItemDetail';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import Layout from './components/commons/Layout';
+import { store } from './redux/store';
+import history from './history';
 
 
 export default class App extends Component {
+  store = createStore(applyMiddleware(ReduxThunk));
 
-  async componentDidMount() {
-    console.log('aqui')
-    const resp = await middleware.http.get('http://localhost:3002/');
-    console.log(resp)
-
-  }
 
   render() {
     return (
-      <Router>
-        <Switch>
-          <Route path="/about">
-            <ItemDetail />
-          </Route>
-          <Route path="/users">
-            <SearchResult />
-          </Route>
-          <Route component={Layout} path="/">
-          </Route>
-        </Switch>
-      </Router>
+      <Provider store={store}>
+        <Router history={history}>
+          <Route exact path="/" component={Layout} />
+          <Route exact path="/items/:id" component={ItemDetail} />
+          <Route exact path="/items" component={SearchResult} />
+        </Router >
+      </Provider>
     )
   }
 

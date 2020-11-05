@@ -56,3 +56,29 @@ $GRAY01: #999999;
   vertical-align: -webkit-baseline-middle;
   margin: 3px 0 0 7px;
 }
+
+@media screen and (max-width: 960px) {
+  // .img-text-container {
+  //   display: inline;
+  // }
+
+  .description {
+    font-size: 18px;
+    width: 200px;
+    margin-top: 16px;
+  }
+}
+
+@media screen and (max-width: 672px) {
+  .img-text-container {
+    display: inline;
+  }
+
+  .description {
+    font-size: 18px;
+    width: 200px;
+    margin-top: 16px;
+    text-align: center;
+    margin-left: auto;
+  }
+}
