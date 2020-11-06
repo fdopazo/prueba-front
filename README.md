@@ -36,11 +36,13 @@ Se realizó un solo repositorio que cuenta con la parte del server y del client.
 cd packages/server
 npm install
 nodemon server
+correra en el puerto http://localhost:3002
 
 # En otro terminal
 cd packages/client
 npm install
 npm run start
+Abrir http://localhost:3010 en el navegador.
 ```
 
 ### Repositorio
