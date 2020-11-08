@@ -11,21 +11,30 @@ class SearchBox extends Component {
     state = {
         search: '',
         categories: [],
-        notResults: false
+        notResults: false,
+        errorMessage: '',
+        errorFlag: false
     }
 
 
     // handle change input
     handleChange(event) {
-        this.setState({ search: event.target.value })
+        this.setState({ search: event.target.value, errorFlag: false })
     }
 
     //submit request, and push to correct route and page
     async onSubmit(e) {
+        e.preventDefault()
         const { search } = this.state;
+
+        if (search === '') {
+            this.setState({ errorMessage: "Debe ingresar un valor", errorFlag: true })
+            return true
+        }
+
         await this.props.loader(true)
         this.props.noResult(false, "")
-        e.preventDefault();
+
         const resp = await this.props.getItems(search);
         try {
             if (resp.data.ok) {
@@ -47,6 +56,13 @@ class SearchBox extends Component {
 
     }
 
+    renderError() {
+        const { errorFlag, errorMessage } = this.state;
+        if (errorFlag) {
+            return <p className="container-detail-item">{errorMessage}</p>
+        }
+    }
+
     render() {
         const { search } = this.state;
         return (
@@ -63,6 +79,8 @@ class SearchBox extends Component {
                         </button>
                     </form>
                 </div>
+                {this.renderError()}
+
             </header >
         )
     }
