@@ -22,6 +22,12 @@ Se realizó un solo repositorio que cuenta con la parte del server y del client.
 - Redux-thunk
 - Css
 
+### Test
+enzyme-adapter-react-16
+enzyme
+redux-mock-store
+Jest-dom
+
 ## Requerimientos
 
 - Ultima version de Node LTS, o preferentemente ultimo stable
@@ -43,6 +49,12 @@ cd packages/client
 npm install
 npm run start
 Abrir http://localhost:3010 en el navegador.
+```
+
+## Testear
+Se realizaron una serie de test a modo de prueba y ejemplo
+```Bash
+npm run test
 ```
 
 ### Repositorio
