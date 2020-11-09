@@ -23,10 +23,10 @@ Se realizó un solo repositorio que cuenta con la parte del server y del client.
 - Css
 
 ### Test
-enzyme-adapter-react-16
-enzyme
-redux-mock-store
-Jest-dom
+- enzyme-adapter-react-16
+- enzyme
+- redux-mock-store
+- Jest-dom
 
 ## Requerimientos
 
