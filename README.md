@@ -39,13 +39,13 @@ Jest-dom
 ```Bash
 
 # En una terminal
-cd packages/server
+cd server
 npm install
 nodemon server
 correra en el puerto http://localhost:3002
 
 # En otro terminal
-cd packages/client
+cd client
 npm install
 npm run start
 Abrir http://localhost:3010 en el navegador.
@@ -54,6 +54,7 @@ Abrir http://localhost:3010 en el navegador.
 ## Testear
 Se realizaron una serie de test a modo de prueba y ejemplo
 ```Bash
+cd client
 npm run test
 ```
 
