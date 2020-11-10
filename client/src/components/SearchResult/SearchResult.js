@@ -53,9 +53,9 @@ class SearchResult extends Component {
                     {/* begin body */}
                     {items && items.map((item) => {
                         return (
-                            <div className="main-container">
+                            <div onClick={() => this.loadDetail(item.id)} className="main-container">
                                 <div className="img-text-container">
-                                    <img alt="imagen de producto" onClick={() => this.loadDetail(item.id)} className="img-item" src={item.picture} />
+                                    <img alt="imagen de producto"  className="img-item" src={item.picture} />
                                     <div>
                                         <div className="price-and-img-container">
                                             <p className="price">${this.thousandSeparator(item.price.amount)}</p>

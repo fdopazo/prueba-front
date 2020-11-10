@@ -32,16 +32,6 @@ describe("SearchBox testing", () => {
 
     });
 
-    // On submit search
-    test('On submit test', () => {
-        const input = wrapper.find('input');
-        expect(input.props().value).toContain('');
-        const fakeEvent = {preventDefault: () => console.log('preventDefault')};
-        input.simulate('submit', fakeEvent);
-        expect(input.length).toBe(1);
-
-    });
-
 
 
 })
